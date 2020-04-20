@@ -1,0 +1,26 @@
+{
+  "name": "eatdaburger",
+  "version": "1.0.0",
+  "description": "node express handlebars app using mysql as db.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nrlong/EatDaBurger.git"
+  },
+  "author": "Nathan Long",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nrlong/EatDaBurger/issues"
+  },
+  "homepage": "https://github.com/nrlong/EatDaBurger#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.3",
+    "mysql": "^2.18.1"
+  }
+}
