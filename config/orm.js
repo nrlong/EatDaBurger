@@ -1,8 +1,8 @@
 const connection = require("./connection");
 
-const orm = {
-    selectAll: function(tableName, cb){
-        let query = "SELECT *FROM " + tableName + ";";
+let orm = {
+    all: function(table, cb){
+        let query = "SELECT * FROM " + table + ";";
         connection.query(query, function(err, res){
             if(err) throw err;
             console.log(res);
@@ -10,23 +10,29 @@ const orm = {
         });
     },
 
-    insertOne: function(tableName, userInput, cb){
-        let query = "INSERT INTO " + tableName + " SET ?";
-        connection.query(query, [userInput], function(err, res){
+    create: function(table, cols, vals, cb){
+        let query = "INSERT INTO ?? (??, ??) VALUES (?, ?)";
+        connection.query(query, [table, cols[0], cols[1], vals[0], vals[1]], function(err, res){
             if (err) throw err;
-            console.log(query.sql);
             console.log(res);
             cb(res)
         });
     },
 
-    updateOne: function(tableName, userInput, condition, cb){
-        let query = "UPDATE " + tableName + " SET ? WHERE ?";
-        connection.query(query, [userInput, condition], function(err, res){
+    update: function(table, cols, vals, cb){
+        let query = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+        connection.query(query, [table, cols[0], vals[0], cols[1], vals[1]], function(err, res){
             if(err) throw(err);
-            console.log(query.sql);
             cb(res)
         });
+    },
+
+    delete: function(table, condition, cb){
+        let query = "DELETE FROM " + table + "WHERE " + condition;
+        connection.query(query, function(err, res){
+            if (err) throw err;
+            cb(res)
+        })
     }
 };
 

@@ -6,12 +6,13 @@ const connection = mysql.createConnection({
     port: 3306,
     user: "root",
     password: pass,
-    database: "wishes_db"
+    database: "burgersDB"
 })
 connection.connect((error) => {
     if (error) throw error;
     console.log("connected as id: " + connection.threadId);
-    connection.end();
+    // connection.end();
 })
+
 
 module.exports = connection;
