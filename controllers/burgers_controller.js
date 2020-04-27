@@ -1,21 +1,19 @@
 const express = require("express");
-const router = express.Router();
 const burger = require("../models/burger");
+const router = express.Router();
 
-// router.get("/", function(req, res){
-//     res.redirect("/burgers")
-// });
 
 router.get("/", function(req, res){
     burger.all(function(data){
-        let burgerData = {
-            burger: data
+        var burgerData = {
+            burgers: data
         };
-        res.render("index", burgerData)
+        // console.log(burgerData)
+        res.render('index', burgerData);
     });
 });
 
-router.post("/api/burgers/", function(req, res){
+router.post("/api/burgers", function(req, res){
     burger.create(["burger_name", "devoured"], [req.body.burger_name, false], function(data){
         res.redirect("/")
     });
