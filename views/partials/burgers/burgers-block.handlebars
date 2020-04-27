@@ -1,4 +1,8 @@
-<li class="burger-nm">{{burger_name}}</li>
-<li><button class="eat-burger btn waves-effect green btn-large" type="submit" name="action" data-id="{{id}}" data-ifdevoured="{{devoured}}">
-{{#if devoured}}DEVOUR!{{else}}ORDER AGAIN{{/if}}</button>
-<button class="remove-burger btn waves-effect red lighten-1 btn-large" type="submit" name="action" data-id="{{id}}">DELETE</button></li>
+<li>
+    {{burger_name}}
+    {{#if devoured}}
+    <button class="change-devoured btn btn-outline-danger" data-id="{{id}}" data-devoured="{{devoured}}">
+        Eat Me!
+        {{/if}}
+    </button>
+    </li>
