@@ -3,6 +3,7 @@ const orm = require("../config/orm");
 let burger = {
     all: function(cb){
         orm.all("burgers", function(res){
+            // console.log(res)
             cb(res)
         });
     },

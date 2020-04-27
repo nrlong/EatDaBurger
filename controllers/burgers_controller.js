@@ -9,13 +9,13 @@ router.get("/", function(req, res){
             burgers: data
         };
         // console.log(burgerData)
-        res.render('index', burgerData);
+        res.render("index", burgerData);
     });
 });
 
 router.post("/api/burgers", function(req, res){
-    burger.create(["burger_name", "devoured"], [req.body.burger_name, false], function(data){
-        res.redirect("/")
+    burger.create(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(data){
+        res.json({id: res.insertId})
     });
 });
 

@@ -2,10 +2,10 @@ const connection = require("./connection");
 
 let orm = {
     all: function(table, cb){
-        let query = "SELECT * FROM " + table + ";";
-        connection.query(query, function(err, result){
+        let query = "SELECT * FROM ??";
+        connection.query(query, [table], function(err, result){
             if(err) throw err;
-            console.log(result);
+            // console.log(result);
             cb(result);
         });
     },
